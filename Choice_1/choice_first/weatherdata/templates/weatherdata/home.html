@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Weather Forecast</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Value</th>
+                <th>Time</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in weather_data %}
+                <tr>
+                    <td>{{ data.category }}</td>
+                    <td>{{ data.value }}</td>
+                    <td>{{ data.time }}</td>
+                    <td>{{ data.date }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Info</title>
+</head>
+<body>
+    <h1>현재 날씨 정보</h1>
+    <p>기온: {{ weather_data.temperature }}°C</p>
+    <p>날씨 상태: {{ weather_data.sky }}</p>
+    <p>강수 여부: {{ weather_data.rain }}</p>
+</body>
+</html>
